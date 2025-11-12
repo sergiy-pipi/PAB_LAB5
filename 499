@@ -1,0 +1,19 @@
+while True:
+    try:
+        num = input().strip()  # зчитуємо рядок
+        if not num:            # якщо порожній рядок — завершення
+            break
+
+        digits = sorted(num)   # сортуємо цифри за зростанням
+        # знаходимо мінімальне число (уникаючи ведучих нулів)
+        if digits[0] == '0':
+            for i in range(1, len(digits)):
+                if digits[i] != '0':
+                    digits[0], digits[i] = digits[i], digits[0]
+                    break
+        min_num = int(''.join(digits))
+        max_num = int(''.join(sorted(num, reverse=True)))
+        print(min_num, max_num)
+
+    except EOFError:
+        break
