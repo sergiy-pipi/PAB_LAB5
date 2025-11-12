@@ -1,0 +1,10 @@
+heights = list(map(int, input().split()))
+new_height = int(input())
+position = 1
+for h in heights:
+    if new_height <= h:
+        position += 1
+    else:
+        break
+
+print(position)
