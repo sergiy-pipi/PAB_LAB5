@@ -1,0 +1,13 @@
+# Обробляємо кожен рядок окремо
+while True:
+    try:
+        line = input().strip()  # читаємо рядок
+        if not line:
+            break  # якщо порожній — завершуємо
+
+        words = line.split()  # розділяємо на слова
+        max_len = max(len(w) for w in words)  # знаходимо найбільшу довжину
+        longest_words = [w for w in words if len(w) == max_len]  # усі слова з такою довжиною
+        print(*longest_words)  # виводимо через пробіл
+    except EOFError:
+        break
